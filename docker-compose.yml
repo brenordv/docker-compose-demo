@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  wordpress:
+    image: wordpress    
+    depends_on:
+      - mysql
+    ports:
+      - "5000:80"
+    restart: always
+  
+  mysql:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    restart: always
